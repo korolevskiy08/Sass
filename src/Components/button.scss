@@ -1,0 +1,69 @@
+@mixin button-size($padding-x, $padding-y, $border-radius, $font-size) {
+  padding: $padding-x $padding-y;
+  border-radius: $border-radius;
+  > .button-title {
+    font-size: $font-size;
+  }
+}
+
+.button {
+
+  cursor: pointer;
+  padding: 5px 10px;
+
+  background-color: aqua;
+  border: 2px solid blue;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: blueviolet;
+  }
+
+  &:active {
+    background-color: crimson;
+
+    > .button-title {
+      color: antiquewhite;
+    }
+  }
+
+  > .button-title {
+    color: black;
+  }
+}
+
+// mixin base example
+
+//.button-size-sm {
+//  @include button-size(
+//          $padding-x: 5px,
+//          $padding-y: 10px,
+//          $border-radius: 5px,
+//          $font-size: 15px
+//  );
+//}
+//
+//.button-size-md {
+//  @include button-size(15px, 20px, 5px, 20px);
+//}
+//
+//.button-size-lg {
+//  @include button-size(25px, 30px, 5px, 25px);
+//}
+
+// mixin any number of arguments
+//@mixin button-size2($selectors...) {
+//  @for $i from 0 to length($selectors) {
+//  # {
+//  nth($selectors, $i + 1) $mul:$i + 1
+//  } {
+//    padding: 5px * $mul 10px * $mul;
+//    border-radius: 5px * $mul;
+//    > .button-title {
+//      font-size: 15px * $mul;
+//    }
+//  }
+//  }
+//}
+
+//@include button-size2('.button-size-sm', 'button-size-md', 'button-size-lg')
